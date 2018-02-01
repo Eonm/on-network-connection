@@ -1,60 +1,27 @@
 #!/usr/bin/env node
 
-const spawn = require('child_process').spawn
-const execSync = require('child_process').execSync
 const exec = require('child_process').exec
 const fs = require('fs')
 const _ = require ('lodash')
+const wifiStatus = require('./lib/wifi-status')
 
-const macAdressMatcher = /(([A-Z0-9]{2}:)){5}[A-Z0-9]{2}/
 let lastNetwork = null
-let iwevent = spawn('iwevent');
 
 let conf = function () {
   return JSON.parse(fs.readFileSync(__dirname + '/blacklist.json', 'utf-8'))
 }
 
-let currentEssid = function () {
-  try {
-    return execSync('iwgetid -r').toString().trim()
-  } catch (err) {}
-}
-
 //------------------------------------ process
 
-if (currentEssid()) {
-  bssid = execSync('iwgetid -a').toString().match(macAdressMatcher)[0]
+wifiStatus.on('disconnected', function(networkInfo){
+  getCommands(conf(), networkInfo, deco)
+  lastNetwork = null
+  return
+})
 
-  networkInfo = {'bssid': bssid ,'essid': currentEssid()}
-
+wifiStatus.on('connected', function(networkInfo){
   lastNetwork = networkInfo
   getCommands(conf(), networkInfo, co)
-}
-
-iwevent.stdout.on('data', function(wifiLogs) {
-  wifiLogs.toString()
-  .split('\n')
-  .forEach( wl => {
-    if (wl.match('Not-Associated')) {
-      getCommands(conf(), networkInfo, deco)
-      lastNetwork = null
-      return
-    }
-
-    if (wl.match("New Access Point/Cell address:")) {
-      console.log(wl.toString())
-
-      setTimeout(function () {
-        console.log(currentEssid())
-
-        bssid = wl.match(macAdressMatcher)[0]
-        networkInfo = {'bssid': bssid ,'essid': currentEssid()}
-        lastNetwork = networkInfo
-
-        getCommands(conf(), networkInfo, co)
-      }, 600);
-    }
-  })
 })
 
 //------------------------------------ functions
