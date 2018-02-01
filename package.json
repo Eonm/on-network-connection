@@ -1,0 +1,16 @@
+{
+  "name": "on-network-connexion",
+  "version": "1.0.0",
+  "description": "Trigger scripts and command on wifi events (on connexion, while connected, on decoonexion)",
+  "main": "index.js",
+  "scripts": {
+    "install": "node install.js",
+    "uninstall": "node uninstall.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eonm",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
