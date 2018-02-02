@@ -41,8 +41,8 @@ function co (config) {
     execCommands(config.once)
     delete config.once
   }
-  if (config.onconnection) {
-    execCommands(config.onconnection)
+  if (config.onConnection) {
+    execCommands(config.onConnection)
   }
   if (config.whileConnected){
     whileConnected(config.whileConnected)

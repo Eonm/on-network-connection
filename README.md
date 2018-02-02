@@ -40,7 +40,7 @@ In order to run the script use : ```node index.js```
  |	 		|
  |			+-> any 	 (trigger scripts for any bssid)
  |			¦			|
- |			¦			+> onconnection: [array of commands]
+ |			¦			+> onConnection: [array of commands]
  |			¦			|
  |			¦			+> onDeconnection : [array of commands]
  |			¦			|
@@ -50,7 +50,7 @@ In order to run the script use : ```node index.js```
  |			¦
  |			+-> bssid		(trigger scripts for a specific bssid)
  |						|
- |						+> onconnection: [array of commands]
+ |						+> onConnection: [array of commands]
  |						|
  |						+> onDeconnection : [array of commands]
  |						|
@@ -72,7 +72,7 @@ In order to run the script use : ```node index.js```
 	"my-office-wifi": {
 		"any": {
 			"once": ["firefox www.example.org", "dbus org.kde.ActivityManager /ActivityManager/Activities org.kde.ActivityManager.Activities.SetCurrentActivity 554629c7-6ced-490c-80bc-12cb006ee0c9"],
-			"onconnection": ["atom", "konsole"],
+			"onConnection": ["atom", "konsole"],
 			"onDeconnection": ["killall konsole"]
 		},
 		"FF:FF:FF:FF:FF:FF": {
