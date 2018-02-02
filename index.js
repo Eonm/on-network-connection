@@ -3,7 +3,7 @@
 const exec = require('child_process').exec
 const fs = require('fs')
 const _ = require ('lodash')
-const wifiStatus = require('./lib/wifi-status')
+const wifiState = require('wifi-state')
 
 let lastNetwork = null
 
@@ -13,13 +13,15 @@ let conf = function () {
 
 //------------------------------------ process
 
-wifiStatus.on('disconnected', function(networkInfo){
+wifiState.start()
+
+wifiState.on('disconnected', function(networkInfo){
   getCommands(conf(), networkInfo, deco)
   lastNetwork = null
   return
 })
 
-wifiStatus.on('connected', function(networkInfo){
+wifiState.on('connected', function(networkInfo){
   lastNetwork = networkInfo
   getCommands(conf(), networkInfo, co)
 })
