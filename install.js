@@ -4,12 +4,12 @@ let autostart = `
 [Desktop Entry]
 Type=Application
 Exec=/usr/bin/env node ${__dirname}/index.js
-Name=on-network-connexion
+Name=on-network-connection
 `
 
 if (process.platform === 'linux') {
   try {
-    fs.writeFileSync(`${process.env['HOME']}/.config/autostart/on-network-connexion.desktop`, autostart, 'utf8')
+    fs.writeFileSync(`${process.env['HOME']}/.config/autostart/on-network-connection.desktop`, autostart, 'utf8')
   } catch (e) {
     console.log('Failed to install')
   }

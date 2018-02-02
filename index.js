@@ -41,8 +41,8 @@ function co (config) {
     execCommands(config.once)
     delete config.once
   }
-  if (config.onConnexion) {
-    execCommands(config.onConnexion)
+  if (config.onconnection) {
+    execCommands(config.onconnection)
   }
   if (config.whileConnected){
     whileConnected(config.whileConnected)
@@ -50,8 +50,8 @@ function co (config) {
 }
 
 function deco (config) {
-  if (config.onDeconnexion) {
-    execCommands(config.onDeconnexion)
+  if (config.onDeconnection) {
+    execCommands(config.onDeconnection)
   }
 }
 

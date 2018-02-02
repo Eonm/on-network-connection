@@ -1,7 +1,7 @@
 {
-  "name": "on-network-connexion",
+  "name": "on-network-connection",
   "version": "1.0.0",
-  "description": "Trigger scripts and command on wifi events (on connexion, while connected, on deconnexion).",
+  "description": "Trigger scripts and command on wifi events (on connection, while connected, on deconnection).",
   "main": "index.js",
   "scripts": {
     "install": "node install.js",
