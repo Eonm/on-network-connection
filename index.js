@@ -31,7 +31,7 @@ function getCommands (configFile, nInfo, cb) {
   let configs = {}
 
   if (!configFile[nInfo.essid]) return
-  if (configFile[nInfo.essid].all) _.mergeWith(configs, configFile[nInfo.essid].all, customizer)
+  if (configFile[nInfo.essid].any) _.mergeWith(configs, configFile[nInfo.essid].any, customizer)
   if (configFile[nInfo.essid][nInfo.bssid]) _.mergeWith(configs, configFile[nInfo.essid][nInfo.bssid], customizer)
   cb(configs)
 }
