@@ -94,10 +94,10 @@ In order to run the script use : ```node index.js```
 ### Use cases
 * Start all programs you need for working (text editor, messaging app, web browser...) when you're in your workplace.
 * Force your computer's speakers to remain muted while you are in your office space.
-* Backup your data to your NAS when back home.
+* Backup your data to your NAS when you get back home.
 * Switch your kde activity according to your location (home/work...).
 * Start vpn connection for specific networks.
 
 ### Notes
-* This script only work on linux and needs iwevent to be installed (already installed on most linux distributions).
+* This script only works on linux and needs iwevent to be installed (already installed on most linux distributions).
 * This script only have been tested with one wireless card.
