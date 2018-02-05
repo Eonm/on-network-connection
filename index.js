@@ -8,7 +8,7 @@ const wifiState = require('wifi-state')
 let lastNetwork = null
 
 let conf = function () {
-  return JSON.parse(fs.readFileSync(__dirname + '/blacklist.json', 'utf-8'))
+  return JSON.parse(fs.readFileSync(__dirname + '/config.json', 'utf-8'))
 }
 
 //------------------------------------ process

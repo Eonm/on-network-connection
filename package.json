@@ -1,17 +1,30 @@
 {
   "name": "on-network-connection",
+  "email": "eonm.dev@gmail.com",
   "version": "1.0.0",
   "description": "Trigger scripts and command on wifi events (on connection, while connected, on deconnection).",
   "main": "index.js",
   "scripts": {
     "install": "node install.js",
-    "uninstall": "node uninstall.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "uninstall": "node uninstall.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Eonm/on-network-connection"
+  },
+  "keywords": [
+    "wifi",
+    "wireless",
+    "essid",
+    "bssid",
+    "wifi events",
+    "wifi-state",
+    "on-network-connection"
+  ],
   "author": "eonm",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4",
-    "wifi-state": "1.1.0"
+    "lodash": "^4.17.5",
+    "wifi-state": "^2.0.0"
   }
 }

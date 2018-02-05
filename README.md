@@ -32,34 +32,33 @@ In order to run the script use : ```node index.js```
 
 ## Create a config file
 
-1. Create a config file called blacklist.json
+1. Create a config file called config.json
 2. Edit the configuration file with the following pattern :
 
 ```
  +-> essid
- |	 		|
- |			+-> any 	 (trigger scripts for any bssid)
- |			¦			|
- |			¦			+> onConnection: [array of commands]
- |			¦			|
- |			¦			+> onDeconnection : [array of commands]
- |			¦			|
- |			¦			+> once: [array of commands]
- |			¦			|
- |			¦			+> whileConnected: [array of commands]
- |			¦
- |			+-> bssid		(trigger scripts for a specific bssid)
- |						|
- |						+> onConnection: [array of commands]
- |						|
- |						+> onDeconnection : [array of commands]
- |						|
- |						+> once: [array of comands]
- |						|
- |						+> whileConnected: [array of commands]
- |			
+ |    |
+ |    +-> any   (trigger scripts for any bssid)
+ |    ¦    |
+ |    ¦    +> onConnection: [array of commands]
+ |    ¦    |
+ |    ¦    +> onDeconnection : [array of commands]
+ |    ¦    |
+ |    ¦    +> once: [array of commands]
+ |    ¦    |
+ |    ¦    +> whileConnected: [array of commands]
+ |    ¦
+ |    +-> bssid   (trigger scripts for a specific bssid)
+ |          |
+ |          +> onConnection: [array of commands]
+ |          |
+ |          +> onDeconnection : [array of commands]
+ |          |
+ |          +> once: [array of comands]
+ |          |
+ |          +> whileConnected: [array of commands]
  |
- +-> other essid
+ |-> other essid
  .
  .
  .
@@ -69,21 +68,21 @@ In order to run the script use : ```node index.js```
 
 ```json
 {
-	"my-office-wifi": {
-		"any": {
-			"once": ["firefox www.example.org", "dbus org.kde.ActivityManager /ActivityManager/Activities org.kde.ActivityManager.Activities.SetCurrentActivity 554629c7-6ced-490c-80bc-12cb006ee0c9"],
-			"onConnection": ["atom", "konsole"],
-			"onDeconnection": ["killall konsole"]
-		},
-		"FF:FF:FF:FF:FF:FF": {
-			"whileConnected" : ["amixer -c 0 set Speaker mute"]
-		}
-	},
-	"public-wifi" : {
-		"all" : {
-			"once": ["./startVPN.sh"]
-		}
-	}
+  "my-office-wifi": {
+    "any": {
+      "once": ["firefox www.example.org", "dbus org.kde.ActivityManager /ActivityManager/Activities org.kde.ActivityManager.Activities.SetCurrentActivity 554629c7-6ced-490c-80bc-12cb006ee0c9"],
+      "onConnection": ["atom", "konsole"],
+      "onDeconnection": ["killall konsole"]
+    },
+    "FF:FF:FF:FF:FF:FF": {
+      "whileConnected" : ["amixer -c 0 set Speaker mute"]
+    }
+  },
+  "public-wifi" : {
+    "all" : {
+      "once": ["./startVPN.sh"]
+  }
+  }
 }
 
 ```
